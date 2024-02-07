@@ -1,4 +1,4 @@
-[unifi-protect](../README.md) / [Exports](../modules.md) / FetchError
+[unifi-protect-node-16](../README.md) / [Exports](../modules.md) / FetchError
 
 # Class: FetchError
 

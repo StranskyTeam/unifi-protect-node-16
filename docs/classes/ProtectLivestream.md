@@ -1,4 +1,4 @@
-[unifi-protect](../README.md) / [Exports](../modules.md) / ProtectLivestream
+[unifi-protect-node-16](../README.md) / [Exports](../modules.md) / ProtectLivestream
 
 # Class: ProtectLivestream
 
@@ -77,7 +77,7 @@ EventEmitter.constructor
 
 #### Defined in
 
-[src/protect-api-livestream.ts:70](https://github.com/hjdhjd/unifi-protect/blob/f89bcca/src/protect-api-livestream.ts#L70)
+[src/protect-api-livestream.ts:70](https://github.com/StranskyTeam/unifi-protect-node-16/blob/f46c6ad/src/protect-api-livestream.ts#L70)
 
 ## Properties
 
@@ -210,7 +210,7 @@ node_modules/@types/node/events.d.ts:395
 
 #### Defined in
 
-[src/protect-api-livestream.ts:397](https://github.com/hjdhjd/unifi-protect/blob/f89bcca/src/protect-api-livestream.ts#L397)
+[src/protect-api-livestream.ts:397](https://github.com/StranskyTeam/unifi-protect-node-16/blob/f46c6ad/src/protect-api-livestream.ts#L397)
 
 ## Methods
 
@@ -387,7 +387,7 @@ ___
 
 #### Defined in
 
-[src/protect-api-livestream.ts:383](https://github.com/hjdhjd/unifi-protect/blob/f89bcca/src/protect-api-livestream.ts#L383)
+[src/protect-api-livestream.ts:383](https://github.com/StranskyTeam/unifi-protect-node-16/blob/f46c6ad/src/protect-api-livestream.ts#L383)
 
 ___
 
@@ -966,7 +966,7 @@ ___
 
 #### Defined in
 
-[src/protect-api-livestream.ts:84](https://github.com/hjdhjd/unifi-protect/blob/f89bcca/src/protect-api-livestream.ts#L84)
+[src/protect-api-livestream.ts:84](https://github.com/StranskyTeam/unifi-protect-node-16/blob/f46c6ad/src/protect-api-livestream.ts#L84)
 
 ___
 
@@ -980,7 +980,7 @@ ___
 
 #### Defined in
 
-[src/protect-api-livestream.ts:97](https://github.com/hjdhjd/unifi-protect/blob/f89bcca/src/protect-api-livestream.ts#L97)
+[src/protect-api-livestream.ts:97](https://github.com/StranskyTeam/unifi-protect-node-16/blob/f46c6ad/src/protect-api-livestream.ts#L97)
 
 ___
 

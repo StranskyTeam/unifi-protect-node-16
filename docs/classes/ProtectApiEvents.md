@@ -1,4 +1,4 @@
-[unifi-protect](../README.md) / [Exports](../modules.md) / ProtectApiEvents
+[unifi-protect-node-16](../README.md) / [Exports](../modules.md) / ProtectApiEvents
 
 # Class: ProtectApiEvents
 
@@ -51,4 +51,4 @@ A UniFi Protect event packet is an encoded representation of state updates that 
 
 #### Defined in
 
-[src/protect-api-events.ts:187](https://github.com/hjdhjd/unifi-protect/blob/f89bcca/src/protect-api-events.ts#L187)
+[src/protect-api-events.ts:187](https://github.com/StranskyTeam/unifi-protect-node-16/blob/f46c6ad/src/protect-api-events.ts#L187)
