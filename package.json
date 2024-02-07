@@ -3,19 +3,19 @@
   "type": "module",
   "version": "4.8.0",
   "displayName": "UniFi Protect API",
-  "description": "A complete implementation of the UniFi Protect API for Node.js v16.",
+  "description": "A complete implementation of the UniFi Protect API for Node.js v16. A fork of https://github.com/hjdhjd/unifi-protect.",
   "author": {
-    "name": "HJD",
-    "url": "https://github.com/hjdhjd"
+    "name": "StranskyTeam",
+    "url": "https://github.com/StranskyTeam"
   },
-  "homepage": "https://github.com/hjdhjd/unifi-protect#readme",
+  "homepage": "https://github.com/StranskyTeam/unifi-protect-node-16#readme",
   "license": "ISC",
   "repository": {
     "type": "git",
     "url": "git://github.com/hjdhjd/unifi-protect.git"
   },
   "bugs": {
-    "url": "https://github.com/hjdhjd/unifi-protect/issues"
+    "url": "https://github.com/StranskyTeam/unifi-protect-node-16/issues"
   },
   "keywords": [
     "camera",
