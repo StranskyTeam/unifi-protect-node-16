@@ -3,7 +3,7 @@ unifi-protect-node-16 / [Exports](modules.md)
 <SPAN ALIGN="CENTER" STYLE="text-align:center">
 <DIV ALIGN="CENTER" STYLE="text-align:center">
 
-[![unifi-protect: UniFi Protect API](https://raw.githubusercontent.com/hjdhjd/unifi-protect/main/unifi-protect-logo-small.svg)](https://github.com/hjdhjd/unifi-protect)
+[![unifi-protect: UniFi Protect API](https://raw.githubusercontent.com/hjdhjd/unifi-protect/main/unifi-protect-logo-small.svg)](https://github.com/StranskyTeam/unifi-protect-node-16)
 
 # UniFi Protect API
 
@@ -35,18 +35,18 @@ The UniFi Protect API is undocumented and implementing a library like this one i
 - The ability to programmatically access the H.264 livestream for any camera. This is useful when you want lightweight access to the full camera feed without resorting to RTSP. For example, this is how [homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect) implements HomeKit Secure Video capabilities, resulting in a lighter weight solution than trying to read the RTSP streams for each camera from the Protect controller.
 
 ## Changelog
-* [Changelog](https://github.com/hjdhjd/unifi-protect/blob/main/docs/Changelog.md): changes and release history of this library.
+* [Changelog](https://github.com/StranskyTeam/unifi-protect-node-16/blob/main/docs/Changelog.md): changes and release history of this library.
 
 ## Installation
 To use this library in Node, install it from the command line:
 
 ```sh
-npm install unifi-protect
+npm install unifi-protect-node-16
 ```
 
 ## Documentation
 
-Documentation and examples for using this library to access UniFi Protect controllers is [available here](https://github.com/hjdhjd/unifi-protect/blob/main/docs/classes/ProtectApi.md). Additionally, if you'd like to see all this in action in a well-documented, real-world example, please take a good look at my [homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect) project. It relies heavily on this library for the core functionality it provides.
+Documentation and examples for using this library to access UniFi Protect controllers is [available here](https://github.com/StranskyTeam/unifi-protect-node-16/blob/main/docs/classes/ProtectApi.md). Additionally, if you'd like to see all this in action in a well-documented, real-world example, please take a good look at my [homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect) project. It relies heavily on this library for the core functionality it provides.
 
 ## UniFi Protect Realtime Updates API
 So...how does UniFi Protect provide realtime updates? On UniFi OS-based controllers, it uses a websocket called `updates`. This connection provides a realtime stream of health, status, and events that the cameras encounter - including motion events and doorbell ring events.
@@ -55,7 +55,7 @@ Reverse engineering the realtime updates API is a bit more difficult than the sy
 
 The Protect realtime updates API, however, is a binary protocol published over the `updates` websocket, and until now has been undocumented. I spent time analyzing what's happening in the Protect browser webUI as well as observing the controller and various Protect versions themselves to reverse engineer what's going on. Pouring through obfuscated code is like solving a puzzle with all the pieces in front of you - you know it's all there, you're just not always sure how it fits together.
 
-For the impatient, you can take a look at the code for how to decode and read the binary protocol here in [protect-updates-api.ts](https://github.com/hjdhjd/unifi-protect/blob/master/src/protect-api-events.ts) and the interface information located in [protect-types.ts](https://github.com/hjdhjd/unifi-protect/blob/master/src/protect-types.ts) as well.
+For the impatient, you can take a look at the code for how to decode and read the binary protocol here in [protect-updates-api.ts](https://github.com/StranskyTeam/unifi-protect-node-16/blob/master/src/protect-api-events.ts) and the interface information located in [protect-types.ts](https://github.com/StranskyTeam/unifi-protect-node-16/blob/master/src/protect-types.ts) as well.
 
 I welcome any additions or corrections to the protocol for the benefit of the community. I hope this helps others launch their own exploration and create new and interesting Protect-enabled capabilities.
 
@@ -65,9 +65,9 @@ This list represents all known apps that are using the realtime updates API for 
  * [homebridge-unifi-protect](https://github.com/hjdhjd/homebridge-unifi-protect): Seamless integration of UniFi Protect into HomeKit with support for cameras, doorbells, and more.
 
 #### Connecting
- * Login to the UniFi Protect controller and obtain the bootstrap JSON. The URL is: `https://protect-nvr-ip/proxy/protect/api/bootstrap`. You can look through [protect-api.ts](https://github.com/hjdhjd/unifi-protect/blob/master/src/protect-api.ts) for a better understanding of the Protect login process and how to obtain the bootstrap JSON.
- * Open the websocket to the updates URL. The URL is: `wss://protect-nvr-ip/proxy/protect/ws/updates?lastUpdateId?lastUpdateId=X`. You can grab lastUpdateId from the bootstrap JSON in the prior step. You can [see an example in protect-api.ts](https://github.com/hjdhjd/unifi-protect/blob/src/protect-api.ts#L225).
- * Then you're ready to listen to messages. You can see an [example of this in protect-nvr.ts](https://github.com/hjdhjd/unifi-protect/blob/src/protect-nvr.ts#L408).
+ * Login to the UniFi Protect controller and obtain the bootstrap JSON. The URL is: `https://protect-nvr-ip/proxy/protect/api/bootstrap`. You can look through [protect-api.ts](https://github.com/StranskyTeam/unifi-protect-node-16/blob/master/src/protect-api.ts) for a better understanding of the Protect login process and how to obtain the bootstrap JSON.
+ * Open the websocket to the updates URL. The URL is: `wss://protect-nvr-ip/proxy/protect/ws/updates?lastUpdateId?lastUpdateId=X`. You can grab lastUpdateId from the bootstrap JSON in the prior step. You can [see an example in protect-api.ts](https://github.com/StranskyTeam/unifi-protect-node-16/blob/src/protect-api.ts#L225).
+ * Then you're ready to listen to messages. You can see an [example of this in protect-nvr.ts](https://github.com/StranskyTeam/unifi-protect-node-16/blob/src/protect-nvr.ts#L408).
 
 Those are the basics and gets us up and running. Now, to explain how the updates API works...
 
@@ -120,7 +120,7 @@ The final part of the update packet is the data frame. The data frame can be thr
 
 | Payload Type |  Description
 |--------------|------------------------------------------------------------------------------------
-| 1            | JSON. If the action frame's `action` property is set to `update` and the `modelKey` property is not set to `event` (e.g. `camera`), this will **always** a subset of the [configuration bootstrap JSON](https://github.com/hjdhjd/unifi-protect/blob/src/protect-types.ts#L6).
+| 1            | JSON. If the action frame's `action` property is set to `update` and the `modelKey` property is not set to `event` (e.g. `camera`), this will **always** a subset of the [configuration bootstrap JSON](https://github.com/StranskyTeam/unifi-protect-node-16/blob/src/protect-types.ts#L6).
 | 2            | A UTF8-encoded string.
 | 3            | Node Buffer.
 
@@ -129,12 +129,12 @@ The final part of the update packet is the data frame. The data frame can be thr
  * `add` actions are always tied to the `event` modelKey and indicate the beginning of an event item in the Protect events list. A subsequent `update` action is sent signaling the end of the event capture, and it's confidence score for motion detection.
  * This is **not** the same thing as motion detection. If you want to detect motion, you should watch the `update` action for `camera` modelKeys, and look for a JSON that updates `lastMotion`. For doorbell rings, `lastRing`. The Protect events list is useful for the Protect app, but it's of limited utility to HomeKit, and it's slow relative to just looking for the `lastMotion` JSON that tends to be much more timely in its delivery. If you want true realtime updates, you want to look at the `update` action.
  * JSONs are only payload type that seems to be sent, although the protocol is designed to accept all three.
- * With the exception of `update` actions with a `modelKey` of `event`, JSONs are always a subset of the bootstrap JSON, indexed off of `modelKey`. So for a `modelKey` of `camera`, the data payload is always a subset of ProtectCameraConfigInterface (see [protect-types.ts](https://github.com/hjdhjd/unifi-protect/blob/src/protect-types.ts#L108)).
+ * With the exception of `update` actions with a `modelKey` of `event`, JSONs are always a subset of the bootstrap JSON, indexed off of `modelKey`. So for a `modelKey` of `camera`, the data payload is always a subset of ProtectCameraConfigInterface (see [protect-types.ts](https://github.com/StranskyTeam/unifi-protect-node-16/blob/src/protect-types.ts#L108)).
 
 ## Library Development Dashboard
 This is mostly of interest to the true developer nerds amongst us.
 
-[![License](https://img.shields.io/npm/l/unifi-protect?color=%230559C9&logo=open%20source%20initiative&logoColor=%23FFFFFF&style=for-the-badge)](https://github.com/hjdhjd/unifi-protect/blob/main/LICENSE.md)
-[![Build Status](https://img.shields.io/github/workflow/status/hjdhjd/unifi-protect/Continuous%20Integration?color=%230559C9&logo=github-actions&logoColor=%23FFFFFF&style=for-the-badge)](https://github.com/hjdhjd/unifi-protect/actions?query=workflow%3A%22Continuous+Integration%22)
+[![License](https://img.shields.io/npm/l/unifi-protect?color=%230559C9&logo=open%20source%20initiative&logoColor=%23FFFFFF&style=for-the-badge)](https://github.com/StranskyTeam/unifi-protect-node-16/blob/main/LICENSE.md)
+[![Build Status](https://img.shields.io/github/workflow/status/hjdhjd/unifi-protect/Continuous%20Integration?color=%230559C9&logo=github-actions&logoColor=%23FFFFFF&style=for-the-badge)](https://github.com/StranskyTeam/unifi-protect-node-16/actions?query=workflow%3A%22Continuous+Integration%22)
 [![Dependencies](https://img.shields.io/librariesio/release/npm/unifi-protect?color=%230559C9&logo=dependabot&style=for-the-badge)](https://libraries.io/npm/uniti-protect)
-[![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/hjdhjd/unifi-protect/latest?color=%230559C9&logo=github&sort=semver&style=for-the-badge)](https://github.com/hjdhjd/unifi-protect/commits/main)
+[![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/hjdhjd/unifi-protect/latest?color=%230559C9&logo=github&sort=semver&style=for-the-badge)](https://github.com/StranskyTeam/unifi-protect-node-16/commits/main)
